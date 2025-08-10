@@ -39,8 +39,8 @@ def recommend(movie):
     return recommended_movies, recommended_posters, recommended_links
 
 
-movies_df = pd.read_csv("tmdb_5000_movies.csv")
-credits_df = pd.read_csv("tmdb_5000_credits.csv")
+movies_df = pd.read_csv("https://drive.google.com/file/d/1yMHBZcD52z45VyApdogBSBvIrow9CTAu/view?usp=sharing")
+credits_df = pd.read_csv("https://drive.google.com/file/d/1XgzxRLnpF5zlaeOfyGpdD_CmcKXtJThQ/view?usp=drive_link")
 movies = movies_df.merge(credits_df, on='title')
 
 movies = movies[['movie_id', 'title', 'overview', 'genres', 'keywords', 'cast', 'crew']]
@@ -76,3 +76,4 @@ if user_input:
                     st.markdown(f"[![poster]({posters[i]})]({links[i]})", unsafe_allow_html=True)
     else:
         st.warning("No close matches found. Try another title.")
+
