@@ -39,8 +39,9 @@ def recommend(movie):
     return recommended_movies, recommended_posters, recommended_links
 
 
-movies_df = pd.read_csv("https://drive.google.com/file/d/1yMHBZcD52z45VyApdogBSBvIrow9CTAu/view?usp=sharing")
-credits_df = pd.read_csv("https://drive.google.com/file/d/1XgzxRLnpF5zlaeOfyGpdD_CmcKXtJThQ/view?usp=drive_link")
+movies_df = pd.read_csv("https://drive.google.com/uc?export=download&id=1yMHBZcD52z45VyApdogBSBvIrow9CTAu
+")
+credits_df = pd.read_csv("https://drive.google.com/uc?export=download&id=1XgzxRLnpF5zlaeOfyGpdD_CmcKXtJThQ")
 movies = movies_df.merge(credits_df, on='title')
 
 movies = movies[['movie_id', 'title', 'overview', 'genres', 'keywords', 'cast', 'crew']]
@@ -76,4 +77,5 @@ if user_input:
                     st.markdown(f"[![poster]({posters[i]})]({links[i]})", unsafe_allow_html=True)
     else:
         st.warning("No close matches found. Try another title.")
+
 
